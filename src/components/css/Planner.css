@@ -1,0 +1,97 @@
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.planner-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.planner-page h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.planner-page p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.planner-form {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.planner-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.planner-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.planner-form input,
+.planner-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #fafafa;
+}
+
+.planner-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.planner-buttons button,
+.planner-form button[type="submit"],
+.planner-form button[type="button"] {
+  flex: 1;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.planner-buttons button:hover,
+.planner-form button[type="submit"]:hover,
+.planner-form button[type="button"]:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .planner-form {
+    padding: 20px;
+  }
+}

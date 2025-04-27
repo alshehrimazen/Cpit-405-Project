@@ -1,0 +1,46 @@
+.historical-sites-card {
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.historical-sites-card .card-header {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+}
+
+.historical-sites-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.historical-site-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+
+.historical-site-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.historical-site-info {
+  padding: 10px;
+}
+
+.historical-site-info h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.historical-site-info p {
+  font-size: 14px;
+  color: #666;
+}

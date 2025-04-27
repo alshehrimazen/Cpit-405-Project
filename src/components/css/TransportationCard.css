@@ -1,0 +1,45 @@
+.transportation-card {
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.transportation-card .card-header {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+}
+
+.transportation-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.transportation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.transportation-details {
+  padding: 20px;
+}
+
+.transportation-details h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.transportation-details p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.transportation-dates div {
+  margin-bottom: 5px;
+}
+
+.transportation-price {
+  text-align: right;
+  margin-top: 10px;
+}

@@ -21,7 +21,9 @@ const Planner = () => {
     }
     if (step === 2) {
       if (!budget || !transportation) {
-        alert("Please fill in Budget and select Transportation before continuing.");
+        alert(
+          "Please fill in Budget and select Transportation before continuing."
+        );
         return;
       }
     }
@@ -68,20 +70,30 @@ const Planner = () => {
           <>
             <h3>Plan Your Umrah Journey</h3>
             <label>Start Date</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              required
-            />
+            <div className="date-input-container">
+              <input
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                required
+              />
+              <span className="calendar-icon">📅</span>
+            </div>
+
             <label>End Date</label>
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              required
-            />
-            <button type="button" onClick={handleNext}>Next</button>
+            <div className="date-input-container">
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                required
+              />
+              <span className="calendar-icon">📅</span>
+            </div>
+
+            <button type="button" onClick={handleNext}>
+              Next
+            </button>
           </>
         )}
 
@@ -106,8 +118,12 @@ const Planner = () => {
               min="1"
             />
             <div className="planner-buttons">
-              <button type="button" onClick={handleBack}>Back</button>
-              <button type="button" onClick={handleNext}>Next</button>
+              <button type="button" onClick={handleBack}>
+                Back
+              </button>
+              <button type="button" onClick={handleNext}>
+                Next
+              </button>
             </div>
           </>
         )}
@@ -132,7 +148,9 @@ const Planner = () => {
               <option value="no">No</option>
             </select>
             <div className="planner-buttons">
-              <button type="button" onClick={handleBack}>Back</button>
+              <button type="button" onClick={handleBack}>
+                Back
+              </button>
               <button type="submit">Generate Plan</button>
             </div>
           </>

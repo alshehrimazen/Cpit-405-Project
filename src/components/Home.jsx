@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 import "./css/Home.css";
 
-const Home = ({ onStart }) => {
+const Home = () => {
   return (
     <div className="home-page">
       <div className="home-overlay">
@@ -10,7 +11,9 @@ const Home = ({ onStart }) => {
           Plan your spiritual journey to the holy city of Makkah with our personalized Umrah planner.
           Get recommendations for accommodation, transportation, and historical sites.
         </p>
-        <button className="home-button" onClick={onStart}>+ Create a Plan</button>
+        <Link to="/planner" className="home-button">
+          + Create a Plan
+        </Link>
       </div>
     </div>
   );

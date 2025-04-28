@@ -26,7 +26,9 @@ const BudgetSummaryCard = ({ budget, accommodationCost, transportationCost, onRe
           <span>Remaining Budget:</span>
           <span>{remainingBudget.toLocaleString()} SAR</span>
         </div>
-        <button className="confirm-button" onClick={onReset}>Confirm Plan</button>
+        <button className="confirm-button" onClick={onReset}>
+          Confirm Plan
+        </button>
       </div>
     </div>
   );

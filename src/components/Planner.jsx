@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import UmrahPlan from "./UmrahPlan";
 import "./css/Planner.css";
 
 const Planner = () => {
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -13,19 +16,15 @@ const Planner = () => {
   const [planGenerated, setPlanGenerated] = useState(false);
 
   const handleNext = () => {
-    if (step === 1) {
-      if (!startDate || !endDate) {
-        alert("Please fill in both Start Date and End Date before continuing.");
-        return;
-      }
+    if (step === 1 && (!startDate || !endDate)) {
+      alert("Please fill in both Start Date and End Date before continuing.");
+      return;
     }
-    if (step === 2) {
-      if (!budget || !transportation) {
-        alert(
-          "Please fill in Budget and select Transportation before continuing."
-        );
-        return;
-      }
+    if (step === 2 && (!budget || !transportation)) {
+      alert(
+        "Please fill in Budget and select Transportation before continuing."
+      );
+      return;
     }
     setStep(step + 1);
   };
@@ -44,6 +43,7 @@ const Planner = () => {
   const resetForm = () => {
     setPlanGenerated(false);
     setStep(1);
+    navigate("/");
   };
 
   if (planGenerated) {
@@ -70,27 +70,19 @@ const Planner = () => {
           <>
             <h3>Plan Your Umrah Journey</h3>
             <label>Start Date</label>
-            <div className="date-input-container">
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                required
-              />
-              <span className="calendar-icon">📅</span>
-            </div>
-
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              required
+            />
             <label>End Date</label>
-            <div className="date-input-container">
-              <input
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                required
-              />
-              <span className="calendar-icon">📅</span>
-            </div>
-
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              required
+            />
             <button type="button" onClick={handleNext}>
               Next
             </button>

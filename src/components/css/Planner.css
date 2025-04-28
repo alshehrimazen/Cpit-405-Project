@@ -92,33 +92,6 @@ html,
   background-color: #45a049;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.date-input-container {
-  position: relative;
-  width: 100%;
-}
-
-.date-input-container input {
-  width: 100%;
-}
-
-.date-input-container .calendar-icon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none; 
-  font-size: 20px;
-  color: #333; 
-}
-
-
-
-
 @media (max-width: 768px) {
   .planner-form {
     padding: 20px;

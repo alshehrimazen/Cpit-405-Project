@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom"; 
 import Home from "./components/Home";
 import Planner from "./components/Planner";
-import Header from "./components/Header"; 
-import './App.css';
+import Header from "./components/Header";
+import "./App.css";
 
 function App() {
-  const [showPlanner, setShowPlanner] = useState(false);
-
   return (
     <div>
-      <Header /> 
-      {showPlanner ? (
-        <Planner />
-      ) : (
-        <Home onStart={() => setShowPlanner(true)} />
-      )}
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/planner" element={<Planner />} />
+      </Routes>
     </div>
   );
 }

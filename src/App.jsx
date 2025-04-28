@@ -1,19 +1,35 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom"; 
-import Home from "./components/Home";
-import Planner from "./components/Planner";
-import Header from "./components/Header";
-import "./App.css";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './components/contexts/AuthContext';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
+import Auth from './components/Auth/Auth';
+import Home from './components/Home';
+import Planner from './components/Planner';
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/planner" element={<Planner />} />
-      </Routes>
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Auth />} />
+
+          <Route path="/home" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/planner" element={
+            <ProtectedRoute>
+              <Planner />
+            </ProtectedRoute>
+          } />
+
+          {/* catch wrong paths */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 }
 

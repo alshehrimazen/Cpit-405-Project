@@ -1,4 +1,3 @@
-/* Make sure root, html, body are full height */
 html,
 body,
 #root {
@@ -23,7 +22,6 @@ body,
 
 .home-overlay {
   background-color: rgba(0, 0, 0, 0.5);
-  /* More transparent dark */
   padding: 50px 40px;
   border-radius: 16px;
   text-align: center;

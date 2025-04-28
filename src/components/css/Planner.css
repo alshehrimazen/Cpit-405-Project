@@ -61,7 +61,9 @@ html,
   border: 1px solid #ccc;
   font-size: 16px;
   background-color: #fafafa;
+  color: black; 
 }
+
 
 .planner-buttons {
   display: flex;
@@ -89,6 +91,17 @@ html,
 .planner-form button[type="button"]:hover {
   background-color: #45a049;
 }
+
+input[type="date"] {
+  color: black;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+  cursor: pointer;
+}
+
+
 
 @media (max-width: 768px) {
   .planner-form {

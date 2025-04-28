@@ -12,11 +12,30 @@ const Planner = () => {
   const [includeHistorical, setIncludeHistorical] = useState("no");
   const [planGenerated, setPlanGenerated] = useState(false);
 
-  const handleNext = () => setStep(step + 1);
+  const handleNext = () => {
+    if (step === 1) {
+      if (!startDate || !endDate) {
+        alert("Please fill in both Start Date and End Date before continuing.");
+        return;
+      }
+    }
+    if (step === 2) {
+      if (!budget || !transportation) {
+        alert("Please fill in Budget and select Transportation before continuing.");
+        return;
+      }
+    }
+    setStep(step + 1);
+  };
+
   const handleBack = () => setStep(step - 1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!origin) {
+      alert("Please enter your Origin before generating the plan.");
+      return;
+    }
     setPlanGenerated(true);
   };
 
@@ -49,9 +68,19 @@ const Planner = () => {
           <>
             <h3>Plan Your Umrah Journey</h3>
             <label>Start Date</label>
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              required
+            />
             <label>End Date</label>
-            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              required
+            />
             <button type="button" onClick={handleNext}>Next</button>
           </>
         )}
@@ -60,12 +89,22 @@ const Planner = () => {
           <>
             <h3>Transportation & Budget</h3>
             <label>Transportation</label>
-            <select value={transportation} onChange={(e) => setTransportation(e.target.value)}>
+            <select
+              value={transportation}
+              onChange={(e) => setTransportation(e.target.value)}
+              required
+            >
               <option value="plane">Plane</option>
               <option value="car">Car</option>
             </select>
             <label>Budget (in SAR)</label>
-            <input type="number" value={budget} onChange={(e) => setBudget(e.target.value)} />
+            <input
+              type="number"
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              required
+              min="1"
+            />
             <div className="planner-buttons">
               <button type="button" onClick={handleBack}>Back</button>
               <button type="button" onClick={handleNext}>Next</button>
@@ -77,9 +116,18 @@ const Planner = () => {
           <>
             <h3>Additional Details</h3>
             <label>Where are you traveling from?</label>
-            <input type="text" value={origin} onChange={(e) => setOrigin(e.target.value)} />
+            <input
+              type="text"
+              value={origin}
+              onChange={(e) => setOrigin(e.target.value)}
+              required
+            />
             <label>Include Historical Sites?</label>
-            <select value={includeHistorical} onChange={(e) => setIncludeHistorical(e.target.value)}>
+            <select
+              value={includeHistorical}
+              onChange={(e) => setIncludeHistorical(e.target.value)}
+              required
+            >
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>

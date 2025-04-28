@@ -1,11 +1,9 @@
-/* RESET default margins and paddings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Make sure the page takes full height */
 html,
 body,
 #root {
@@ -13,5 +11,4 @@ body,
   width: 100%;
   font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
-  /* You can adjust it if you want */
 }

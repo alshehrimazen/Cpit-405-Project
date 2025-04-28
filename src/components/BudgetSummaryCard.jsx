@@ -1,7 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; 
 import "./css/BudgetSummaryCard.css";
 
 const BudgetSummaryCard = ({ budget, accommodationCost, transportationCost, onReset }) => {
+  const navigate = useNavigate();
+
+  const handleConfirm = () => {
+    if (onReset) {
+      onReset();
+    }
+    navigate("/home"); 
+  };
+
   const remainingBudget = parseInt(budget, 10) - accommodationCost - transportationCost;
 
   return (
@@ -26,7 +36,8 @@ const BudgetSummaryCard = ({ budget, accommodationCost, transportationCost, onRe
           <span>Remaining Budget:</span>
           <span>{remainingBudget.toLocaleString()} SAR</span>
         </div>
-        <button className="confirm-button" onClick={onReset}>
+
+        <button className="confirm-button" onClick={handleConfirm}>
           Confirm Plan
         </button>
       </div>

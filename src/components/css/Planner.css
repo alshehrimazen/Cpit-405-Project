@@ -97,3 +97,7 @@ html,
     padding: 20px;
   }
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Makes white icon turn black */
+}

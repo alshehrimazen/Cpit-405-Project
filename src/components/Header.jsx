@@ -25,7 +25,7 @@ const Header = () => {
       <nav className="nav">
         <Link to="/home" className="nav-btn">Home</Link> 
         <Link to="/planner" className="nav-btn">The Plan</Link>
-        <Link to="/home" className="nav-btn">How to Perform Umrah</Link> 
+        <Link to="/umrah-guide" className="nav-btn">How to Perform Umrah</Link> 
       </nav>
     </header>
   );

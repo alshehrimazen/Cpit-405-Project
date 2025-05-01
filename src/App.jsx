@@ -6,12 +6,13 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Planner from "./components/Planner";
 import "./App.css";
+import UmrahGuide from "./components/UmrahGuide";
 
 function AppContent() {
   const location = useLocation();
 
   // Only show Header on these routes:
-  const showHeaderRoutes = ["/home", "/planner"];
+  const showHeaderRoutes = ["/home", "/planner", "/umrah-guide"];
   const showHeader = showHeaderRoutes.includes(location.pathname);
 
   return (
@@ -33,6 +34,14 @@ function AppContent() {
           element={
             <ProtectedRoute>
               <Planner />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/umrah-guide"
+          element={
+            <ProtectedRoute>
+              <UmrahGuide />
             </ProtectedRoute>
           }
         />

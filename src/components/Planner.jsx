@@ -14,35 +14,59 @@ const Planner = () => {
   const [origin, setOrigin] = useState("");
   const [includeHistorical, setIncludeHistorical] = useState("no");
   const [planGenerated, setPlanGenerated] = useState(false);
+  const [ollamaMessages, setOllamaMessages] = useState([]);
+
+  const askOllama = async (input) => {
+    try {
+      const res = await fetch("http://localhost:8000/generate_plan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_input: input }),
+      });
+
+      const data = await res.json();
+      const reply = data.response || "No response.";
+      setOllamaMessages([reply]); // Only one message now
+    } catch (err) {
+      console.error("Error calling Ollama:", err);
+      setOllamaMessages(["Error connecting to Ollama."]);
+    }
+  };
 
   const handleNext = () => {
-    if (step === 1 && (!startDate || !endDate)) {
-      alert("Please fill in both Start Date and End Date before continuing.");
-      return;
+    if (step === 1) {
+      if (!startDate || !endDate) {
+        alert("Please fill in both Start Date and End Date before continuing.");
+        return;
+      }
     }
-    if (step === 2 && (!budget || !transportation)) {
-      alert(
-        "Please fill in Budget and select Transportation before continuing."
-      );
-      return;
+    if (step === 2) {
+      if (!budget || !transportation) {
+        alert("Please fill in Budget and select Transportation before continuing.");
+        return;
+      }
     }
     setStep(step + 1);
   };
 
   const handleBack = () => setStep(step - 1);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!origin) {
       alert("Please enter your Origin before generating the plan.");
       return;
     }
+
+    const summaryPrompt = `Create a detailed Umrah plan for someone traveling from ${origin} from ${startDate} to ${endDate}, with a budget of ${budget} SAR, using ${transportation}, including historical sites: ${includeHistorical}.`;
+    await askOllama(summaryPrompt);
     setPlanGenerated(true);
   };
 
   const resetForm = () => {
     setPlanGenerated(false);
     setStep(1);
+    setOllamaMessages([]);
     navigate("/");
   };
 
@@ -56,6 +80,7 @@ const Planner = () => {
         origin={origin}
         includeHistorical={includeHistorical}
         onReset={resetForm}
+        ollamaMessages={ollamaMessages}
       />
     );
   }

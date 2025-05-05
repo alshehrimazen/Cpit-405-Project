@@ -25,12 +25,26 @@ class PlanRequest(BaseModel):
 # POST route to handle Umrah plan generation
 @app.post("/generate_plan")
 def generate_plan(req: PlanRequest):
-    prompt = f"Create a detailed Umrah plan based on the following details:\n{req.user_input}"
+    prompt = f"""
+Create Umrah plan in **Makkah only**.
+
+Each day must include: (you should now how many days the plan is from the user input)
+- Morning, Afternoon, Evening, and Night activities
+- Visits to Islamic sites like Masjid al-Haram, Jabal al-Nour
+- Local restaurant and hotel suggestions
+- Budget summary at the end
+
+Do not mention other cities. Format the output using Markdown headers and bullet points.
+
+User input:
+{req.user_input}
+"""
 
     payload = {
-        "model": "gemma:2b",  # You can change to "gemma:2b" for faster model
+        "model": "llama3:8b",  # You can change to "gemma:2b" for faster model
         "prompt": prompt,
-        "stream": False
+        "stream": False,
+        "num_predict": 500
     }
 
     try:

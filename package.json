@@ -2,14 +2,14 @@
   "name": "umarh-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/alshehrimazen/Umrah-App",
+  "homepage": "https://alshehrimazen.github.io/Umrah-App",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {

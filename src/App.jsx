@@ -5,14 +5,15 @@ import Auth from "./components/Auth/Auth";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Planner from "./components/Planner";
-import "./App.css";
 import UmrahGuide from "./components/UmrahGuide";
+import YourPlan from "./components/YourPlan"; // ✅ import YourPlan
+import "./App.css";
 
 function AppContent() {
   const location = useLocation();
 
-  // Only show Header on these routes:
-  const showHeaderRoutes = ["/home", "/planner", "/umrah-guide"];
+  // ✅ Include YourPlan route for header display
+  const showHeaderRoutes = ["/home", "/planner", "/umrah-guide", "/yourplan"];
   const showHeader = showHeaderRoutes.includes(location.pathname);
 
   return (
@@ -45,7 +46,14 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
-        
+        <Route
+          path="/yourplan"
+          element={
+            <ProtectedRoute>
+              <YourPlan />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

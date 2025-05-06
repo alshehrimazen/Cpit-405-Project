@@ -32,9 +32,10 @@ Each day must include: (you should now how many days the plan is from the user i
 - Morning, Afternoon, Evening, and Night activities
 - Visits to Islamic sites like Masjid al-Haram, Jabal al-Nour
 - Local restaurant and hotel suggestions
-- Budget summary at the end
 
 Do not mention other cities. Format the output using Markdown headers and bullet points.
+
+Budget summary at the end
 
 User input:
 {req.user_input}
@@ -44,7 +45,7 @@ User input:
         "model": "llama3:8b",  # You can change to "gemma:2b" for faster model
         "prompt": prompt,
         "stream": False,
-        "num_predict": 500
+        "num_predict": 100
     }
 
     try:

@@ -20,7 +20,7 @@ html,
 .planner-page h2 {
   font-size: 32px;
   margin-bottom: 10px;
-  color: #2e7d32;
+  color: #006064;
 }
 
 .planner-page p {
@@ -61,7 +61,7 @@ html,
   border: 1px solid #ccc;
   font-size: 16px;
   background-color: #fafafa;
-  color: black; 
+  color: black;
 }
 
 
@@ -76,7 +76,7 @@ html,
 .planner-form button[type="button"] {
   flex: 1;
   padding: 12px;
-  background-color: #4CAF50;
+  background-color: #006064;
   border: none;
   color: white;
   font-size: 16px;
@@ -89,7 +89,7 @@ html,
 .planner-buttons button:hover,
 .planner-form button[type="submit"]:hover,
 .planner-form button[type="button"]:hover {
-  background-color: #45a049;
+  background-color: #006064;
 }
 
 @media (max-width: 768px) {
@@ -99,7 +99,8 @@ html,
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Makes white icon turn black */
+  filter: invert(1);
+  /* Makes white icon turn black */
 }
 
 .planner-loading {
@@ -131,6 +132,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

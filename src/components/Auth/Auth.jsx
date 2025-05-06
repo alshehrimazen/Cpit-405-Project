@@ -53,7 +53,7 @@ export default function Auth() {
           />
         </div>
 
-        <div className="text-link">Forgot your password?</div>
+        <button type="button" className="text-link">Forgot your password?</button>
 
         <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
 

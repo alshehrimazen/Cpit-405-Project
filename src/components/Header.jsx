@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import { FiLogOut } from "react-icons/fi";
 import "./css/Header.css";
@@ -13,7 +13,7 @@ const Header = () => {
     try {
       await logout();
       localStorage.clear();
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.error("Logout failed", error);
     }
@@ -21,23 +21,46 @@ const Header = () => {
 
   return (
     <header className="header">
+      <div className="logo-title">Umrah Tour</div>
+
       <nav className="nav">
-        <Link to="/home" className="nav-link">Home</Link>
-        <Link to="/planner" className="nav-link">The Plan</Link>
-        <Link to="/umrah-guide" className="nav-link">How to Perform Umrah</Link>
-        <Link to="/yourplan" className="nav-link">Your Plan</Link>
+        <NavLink to="/home" className="nav-link">
+          Home
+        </NavLink>
+        <NavLink to="/planner" className="nav-link">
+          The Plan
+        </NavLink>
+        <NavLink to="/umrah-guide" className="nav-link">
+          How to Perform Umrah
+        </NavLink>
+        <NavLink to="/yourplan" className="nav-link">
+          Your Plan
+        </NavLink>
       </nav>
 
       <div className="logout-container">
-        <FiLogOut className="logout-icon" size={22} onClick={() => setConfirmVisible(true)} />
+        <button
+          className="logout-combined"
+          onClick={() => setConfirmVisible(true)}
+        >
+          <FiLogOut className="logout-icon" />
+          Log Out
+        </button>
+
         {confirmVisible && (
-          <div className="logout-popup">
-            <p>Are you sure you want to log out?</p>
-            <div className="popup-buttons">
-              <button onClick={handleLogout}>Yes</button>
-              <button onClick={() => setConfirmVisible(false)}>No</button>
+          <>
+            <div
+              className="logout-overlay"
+              onClick={() => setConfirmVisible(false)}
+            />
+            <div className="logout-popup">
+              <p>Are you sure you want to log out?</p>
+              <div className="popup-buttons">
+                <button onClick={handleLogout}>Yes</button>
+                <button onClick={() => setConfirmVisible(false)}>No</button>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </header>

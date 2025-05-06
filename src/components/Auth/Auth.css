@@ -63,18 +63,20 @@
   background-color: #004c4c;
 }
 
-/* ✅ Text link style */
+
 .text-link {
   background: none;
   border: none;
-  color: #006064;
+  color: #62c6c6;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   text-align: center;
   padding: 0.25rem 0;
+  text-decoration: none;
 }
 
 .text-link:hover {
-  color: #062121;
+  color: #62c6c6;
+  text-decoration: underline;
 }

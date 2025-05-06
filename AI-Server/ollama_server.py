@@ -52,8 +52,9 @@ User input:
         response = requests.post(OLLAMA_URL, json=payload)
 
         if response.status_code == 200:
+            # print("🟢 Ollama response:", response.text)
             result = response.json()
-            print("🔹 Ollama raw result:", result)  # Logging for debugging
+            # print("🔹 Ollama raw result:", result)  # Logging for debugging
             return {"response": result.get("response", "No response from model.")}
         else:
             print("🔴 Ollama error:", response.status_code, response.text)

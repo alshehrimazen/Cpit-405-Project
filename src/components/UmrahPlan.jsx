@@ -63,7 +63,7 @@ const UmrahPlan = ({
         {ollamaMessages?.length > 0 && ollamaMessages[0].trim() !== "" ? (
           ollamaMessages.map((msg, index) => (
             <div key={index} className="markdown-output">
-              <ReactMarkdown>{msg}</ReactMarkdown>
+              <ReactMarkdown >{msg}</ReactMarkdown>
             </div>
           ))
         ) : (

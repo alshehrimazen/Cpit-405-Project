@@ -75,7 +75,7 @@ const Planner = () => {
     return (
       <div className="planner-loading">
         <div className="loader"></div>
-        <p>Generating your Umrah plan... please wait</p>
+        <p>Generating your Umrah plan... please wait may takes two minutes</p>
       </div>
     );
   }
@@ -116,7 +116,7 @@ const Planner = () => {
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              min={startDate} 
+              min={startDate}
               required
             />
             <button type="button" onClick={handleNext}>

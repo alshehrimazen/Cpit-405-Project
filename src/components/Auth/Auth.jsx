@@ -53,22 +53,13 @@ export default function Auth() {
           />
         </div>
 
-        <div className="forgot-password">
-          Forgot your password?
-        </div>
+        <div className="text-link">Forgot your password?</div>
 
         <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
 
         <button
           type="button"
-          style={{
-            background: 'transparent',
-            color: '#2e7d32',
-            fontWeight: 'bold',
-            border: 'none',
-            marginTop: '10px',
-            cursor: 'pointer',
-          }}
+          className="text-link"
           onClick={() => setIsLogin(!isLogin)}
         >
           {isLogin ? 'Need an account? Sign Up' : 'Already have an account? Login'}

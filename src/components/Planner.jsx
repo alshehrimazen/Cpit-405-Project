@@ -15,6 +15,7 @@ const Planner = () => {
   const [includeHistorical, setIncludeHistorical] = useState("no");
   const [planGenerated, setPlanGenerated] = useState(false);
   const [ollamaMessages, setOllamaMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const askOllama = async (input) => {
     try {
@@ -34,17 +35,15 @@ const Planner = () => {
   };
 
   const handleNext = () => {
-    if (step === 1) {
-      if (!startDate || !endDate) {
-        alert("Please fill in both Start Date and End Date before continuing.");
-        return;
-      }
+    if (step === 1 && (!startDate || !endDate)) {
+      alert("Please fill in both Start Date and End Date before continuing.");
+      return;
     }
-    if (step === 2) {
-      if (!budget || !transportation) {
-        alert("Please fill in Budget and select Transportation before continuing.");
-        return;
-      }
+    if (step === 2 && (!budget || !transportation)) {
+      alert(
+        "Please fill in Budget and select Transportation before continuing."
+      );
+      return;
     }
     setStep(step + 1);
   };
@@ -57,9 +56,11 @@ const Planner = () => {
       alert("Please enter your Origin before generating the plan.");
       return;
     }
+    setIsLoading(true);
 
     const summaryPrompt = `Create a detailed Umrah plan for someone traveling from ${origin} from ${startDate} to ${endDate}, with a budget of ${budget} SAR, using ${transportation}, including historical sites: ${includeHistorical}.`;
     await askOllama(summaryPrompt);
+    setIsLoading(false);
     setPlanGenerated(true);
   };
 
@@ -67,8 +68,17 @@ const Planner = () => {
     setPlanGenerated(false);
     setStep(1);
     setOllamaMessages([]);
-    navigate("/");
+    navigate("/planner");
   };
+
+  if (isLoading) {
+    return (
+      <div className="planner-loading">
+        <div className="loader"></div>
+        <p>Generating your Umrah plan... please wait</p>
+      </div>
+    );
+  }
 
   if (planGenerated) {
     return (
@@ -106,6 +116,7 @@ const Planner = () => {
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
+              min={startDate} 
               required
             />
             <button type="button" onClick={handleNext}>

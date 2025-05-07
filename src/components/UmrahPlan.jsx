@@ -22,11 +22,7 @@ const UmrahPlan = ({
   );
 
   const handleConfirm = async () => {
-    // if (!currentUser) {
-    //   alert("❌ You must be logged in to confirm the plan.");
-    //   navigate("/login");
-    //   return;
-    // }
+    
 
     const planData = {
       startDate,

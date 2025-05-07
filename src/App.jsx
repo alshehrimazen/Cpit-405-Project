@@ -6,13 +6,13 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Planner from "./components/Planner";
 import UmrahGuide from "./components/UmrahGuide";
-import YourPlan from "./components/YourPlan"; // ✅ import YourPlan
+import YourPlan from "./components/YourPlan"; 
 import "./App.css";
 
 function AppContent() {
   const location = useLocation();
 
-  // ✅ Include YourPlan route for header display
+  
   const showHeaderRoutes = ["/home", "/planner", "/umrah-guide", "/yourplan"];
   const showHeader = showHeaderRoutes.includes(location.pathname);
 

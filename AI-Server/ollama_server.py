@@ -42,7 +42,7 @@ User input:
 """
 
     payload = {
-        "model": "llama3:8b",  # You can change to "gemma:2b" for faster model
+        "model": "llama3:8b",
         "prompt": prompt,
         "stream": False,
         "num_predict": 100

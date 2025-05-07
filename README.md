@@ -68,27 +68,27 @@ python -m uvicorn ollama_server:app --reload
 A visual walkthrough of the *Umrah Tour* web app:
 
 ### 🔐 1. Authentication Page
-![Auth Page](./Auth.png)
+![Auth Page](./ReadmeImages/Auth.png)
 
 ### 🏠 2. Home Page
-![Home Page](./Home.png)
+![Home Page](./ReadmeImages/Home.png)
 
 ### 🗓 3. Plan Tab (Multi-step)
 
 - **Step 1: Travel Date**  
-  ![Plan Step 1](./plan1.png)
+  ![Plan Step 1](./ReadmeImages/plan1.png)
 
 - **Step 2: Transportation & Budget Preferences**  
-  ![Plan Step 2](./plan2.png)
+  ![Plan Step 2](./ReadmeImages/plan2.png)
 
 - **Step 3: Additional Details**  
-  ![Plan Step 3](./plan3.png)
+  ![Plan Step 3](./ReadmeImages/plan3.png)
 
 ### 📋 4. Your Saved Plan
-![Your Plan](./Splan.png)
+![Your Plan](./ReadmeImages/Splan.png)
 
 ### 🕋 5. Umrah Guide
-  ![Guide Step 1](./Guide1.png)
-  ![Guide Step 2](./Guide2.png)
+![Guide Step 1](./ReadmeImages/Guide1.png)  
+![Guide Step 2](./ReadmeImages/Guide2.png)
 
 ---

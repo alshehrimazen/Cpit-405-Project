@@ -100,7 +100,6 @@ html,
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
-  /* Makes white icon turn black */
 }
 
 .planner-loading {

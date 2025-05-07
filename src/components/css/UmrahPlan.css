@@ -37,39 +37,31 @@
   color: #006064;
 }
 
-/* Markdown formatting */
+
 
 .markdown-output h1 {
   font-size: 1.6rem;
   color: #004d40;
-  /* margin: 1rem 0 0.5rem; */
 }
 
 .markdown-output h2 {
   font-size: 1.3rem;
   color: #004d40;
-  /* margin: 1rem 0 0.5rem; */
 }
 
 .markdown-output h3 {
   font-size: 1.15rem;
   color: #004d40;
-  /* margin: 1rem 0 0.5rem; */
 }
 
 .markdown-output p {
-  /* margin: 0.25rem 0; */
   line-height: 1.6;
 }
 
 .markdown-output ul {
-  /* margin: 0.25rem 0 0.5rem 1.5rem; */
   padding-left: 1rem;
 }
 
-.markdown-output li {
-  /* margin-bottom: 0.4rem; */
-}
 
 .markdown-output a {
   color: #1a0dab;
@@ -80,7 +72,7 @@
   text-decoration: underline;
 }
 
-/* Button styling */
+
 
 button {
   background-color: #006064;
@@ -91,7 +83,6 @@ button {
   cursor: pointer;
   font-size: 1rem;
   display: block;
-  /* margin: 2rem auto 0; */
   transition: background-color 0.3s ease;
 }
 

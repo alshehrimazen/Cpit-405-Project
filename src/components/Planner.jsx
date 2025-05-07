@@ -19,7 +19,7 @@ const Planner = () => {
 
   const askOllama = async (input) => {
     try {
-      const res = await fetch("https://ai-server-okmt.onrender.com/generate_plan", {
+      const res = await fetch("http://localhost:8000/generate_plan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_input: input }),
@@ -27,7 +27,7 @@ const Planner = () => {
 
       const data = await res.json();
       const reply = data.response || "No response.";
-      setOllamaMessages([reply]); // Only one message now
+      setOllamaMessages([reply]);
     } catch (err) {
       console.error("Error calling Ollama:", err);
       setOllamaMessages(["Error connecting to Ollama."]);

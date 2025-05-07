@@ -1,12 +1,94 @@
-# React + Vite
+# 🕋 Umrah Tour
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*Umrah Tour* is a modern web application designed to help Muslims plan a smooth and personalized Umrah journey. It uses AI to generate smart itineraries based on user input such as travel dates, budget, City, and preferences for transportation and historical sites.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Installation Guide
 
-## Expanding the ESLint configuration
+Follow these steps to set up the project on your machine:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Setup
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Install required libraries**
+   ```bash
+   npm install react-router-dom react-markdown
+   ```
+
+---
+
+### AI Server Setup
+
+1. **Install [Ollama](https://ollama.com/download)** on your local machine.
+
+2. **Run the llama 3 model**
+   ```bash
+   ollama run llama3:8b
+   ```
+
+3. **Install Python dependencies**
+   Make sure you have Python installed, then run:
+   ```bash
+   pip install fastapi uvicorn requests
+   ```
+
+---
+
+## 🚀 Running the Project
+
+### 1. Start the React App
+in the root folder run:
+```bash
+npm run dev
+```
+
+### 2. Start the AI Server
+Navigate to the AI-Server folder and run:
+```bash
+python -m uvicorn ollama_server:app --reload
+```
+
+---
+
+##  Features
+
+- 📆 Plan your Umrah trip step by step  
+- 🤖 AI-generated itinerary via FastAPI + Ollama   
+- 🔐 Login/Logout functionality with Firebase
+
+---
+
+## 🖼 UI Screenshots
+
+A visual walkthrough of the *Umrah Tour* web app:
+
+### 🔐 1. Authentication Page
+![Auth Page](./Auth.png)
+
+### 🏠 2. Home Page
+![Home Page](./Home.png)
+
+### 🗓 3. Plan Tab (Multi-step)
+
+- **Step 1: Travel Date**  
+  ![Plan Step 1](./plan1.png)
+
+- **Step 2: Transportation & Budget Preferences**  
+  ![Plan Step 2](./plan2.png)
+
+- **Step 3: Additional Details**  
+  ![Plan Step 3](./plan3.png)
+
+### 📋 4. Your Saved Plan
+![Your Plan](./Splan.png)
+
+### 🕋 5. Umrah Guide
+  ![Guide Step 1](./Guide1.png)
+  ![Guide Step 2](./Guide2.png)
+
+---

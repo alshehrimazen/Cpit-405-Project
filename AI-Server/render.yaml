@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: umrah-ai-server
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: uvicorn ollama_server:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: OLLAMA_URL
+        value: http://localhost:11434/api/generate

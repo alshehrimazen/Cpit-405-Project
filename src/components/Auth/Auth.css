@@ -4,7 +4,8 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: #ffffff;
+  background: url('../../assets/BgLogin.png') no-repeat center center;
+  background-size: cover;
 }
 
 .auth-form {
